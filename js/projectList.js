@@ -31,6 +31,8 @@
 							if(ret.status=="1"){
 								dialog.close();//关闭模态框
 								window.location.reload();//刷新页面
+							}else if(ret.status=="2"){
+								alert(ret.message);
 							}
 						}
 					});

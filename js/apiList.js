@@ -165,7 +165,7 @@ $(function(){
 				data:"projectId="+projectId,
 				type:"post",
 				success:function(ret){
-			if(ret.status=="1"&&ret.data!=null){
+			if(ret.status=="1"&&ret.data.length!=0){
 				var options = "";
 				$.each(ret.data,function(ind,ele){
 					options+=("<option value='"+ele.id+"'>"+ele.name+"</option>");
@@ -175,6 +175,9 @@ $(function(){
 			}else if(ret.status=="1"&&ret.message=="账号未登录"){
 				location.href=lemon.config.global.rootUrl+"/login.html"
 				//alert(ret.msg);
+			}else if ( ret.data.length==0) {
+					alert("无接口分类信息，请先添加接口分类信息！")
+					return ;
 			}
 			var dialog = jqueryAlert({
 			    'style'   : 'pc',

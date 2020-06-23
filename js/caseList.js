@@ -20,6 +20,10 @@ $(function(){
 				if(ret.status!=1){
 					return;
 				}
+				console.log(ret.data.responseBody)
+				console.log((ret.data.responseBody!=""))
+				console.log('<pre class="pre-scrollable">'+((ret.data.responseBody!="")?(JSON.stringify(JSON.parse(ret.data.responseBody), null, 2)):(null))+'</pre>')
+				console.log((ret.data.responseBody!="")?(JSON.stringify(JSON.parse(ret.data.responseBody), null, 2)):(null))
 				var reportDiv = '<div class="testrep-layer top-border" id="testReport">'
 					+'<div class="nav-testrep">'
 					+'<ul class="clearfix">'
@@ -62,7 +66,7 @@ $(function(){
 						+'<li>'
 						+'<label>Body</label>'
 						+'<span>'
-						+'<pre class="pre-scrollable">'+JSON.stringify(JSON.parse(ret.data.responseBody), null, 2)+'</pre>'
+						+'<pre class="pre-scrollable">'+((ret.data.responseBody!="")?(JSON.stringify(JSON.parse(ret.data.responseBody), null, 2)):(null))+'</pre>'
 						+'</span>'
 						+'</li>'
 					+'</ul>'
@@ -128,7 +132,7 @@ $(function(){
 									$(tr).find("td:eq(1)").html("<i class=\"icon-fail\"></i>");
 								}
 							}
-							$(tr).find("td:eq(3)").html("<a href=\"#\" class=\"btn-testrep btn-com btn-default\">测试结果</a>");
+							$(tr).find("td:eq(3)").html("<a href=\"#\" class=\"btn-testrep btn-com btn-default\">测试详情</a>");
 						});
 					}else{
 						alert(ret.message);
